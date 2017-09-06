@@ -125,6 +125,7 @@ def create_connection():
             'ovirt_username': os.environ.get('OVIRT_USERNAME'),
             'ovirt_password': os.environ.get('OVIRT_PASSWORD'),
             'ovirt_ca_file': os.environ.get('OVIRT_CAFILE'),
+            'ovirt_kerberos': os.environ.get('OVIRT_KERBEROS'),
         }
     )
     if not config.has_section('ovirt'):
@@ -138,6 +139,7 @@ def create_connection():
         password=config.get('ovirt', 'ovirt_password', raw=True),
         ca_file=config.get('ovirt', 'ovirt_ca_file'),
         insecure=config.get('ovirt', 'ovirt_ca_file') is None,
+        kerberos=config.get('ovirt', 'ovirt_kerberos'),
     )
 
 
